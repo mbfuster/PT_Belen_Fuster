@@ -1,45 +1,41 @@
-// import Head from 'next/head';
-// import NextLink from 'next/link';
-// import { Routes, Route, Link as RLink} from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Box, Button, Container, Grid, Link, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, TextField, Typography, Link } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Facebook as FacebookIcon } from '../icons/facebook';
 import { Google as GoogleIcon } from '../icons/google';
-import Home from "./Home";
-import Register from "./Register";
 
 const Login = () => {
-//   const router = useRouter();
-  const formik = useFormik({
-    initialValues: {
-      email: 'demo@devias.io',
-      password: 'Password123'
-    },
-    validationSchema: Yup.object({
-      email: Yup
-        .string()
-        .email(
-          'Must be a valid email')
-        .max(255)
-        .required(
-          'Email is required'),
-      password: Yup
-        .string()
-        .max(255)
-        .required(
-          'Password is required')
-    }),
-    // onSubmit: () => {
-    //   router.push('/');
-    // }
-  });
+    const navigate = useNavigate();
+    const formik = useFormik({
+        initialValues: {
+        email: 'demo@devias.io',
+        password: 'Password123'
+        },
+        validationSchema: Yup.object({
+        email: Yup
+            .string()
+            .email(
+            'Must be a valid email')
+            .max(255)
+            .required(
+            'Email is required'),
+        password: Yup
+            .string()
+            .max(255)
+            .required(
+            'Password is required')
+        }),
+        onSubmit: () => {
+            navigate('/main');
+        }
+    });
 
     return (
         <>
         <h1>
-            Login | Material Kit
+            Welcome!
         </h1>
         <Box
             component="main"
@@ -51,7 +47,14 @@ const Login = () => {
             }}
         >
             <Container maxWidth="sm">
-
+                <RouterLink style={{textDecoration: 'none'}} to="/">
+                    <Button
+                        component="a"
+                        startIcon={<ArrowBackIcon fontSize="small" />}
+                        >
+                        Back
+                    </Button>
+                </RouterLink>
                 <form onSubmit={formik.handleSubmit}>
                     <Box sx={{ my: 3 }}>
                     <Typography
@@ -111,13 +114,13 @@ const Login = () => {
                         pt: 3
                     }}
                     >
-                    <Typography
-                        align="center"
-                        color="textSecondary"
-                        variant="body1"
-                    >
-                        or login with email address
-                    </Typography>
+                        <Typography
+                            align="center"
+                            color="textSecondary"
+                            variant="body1"
+                        >
+                            or login with email address
+                        </Typography>
                     </Box>
                     <TextField
                         error={Boolean(formik.touched.email && formik.errors.email)}
@@ -146,23 +149,35 @@ const Login = () => {
                         variant="outlined"
                     />
                     <Box sx={{ py: 2 }}>
-                    <Button
-                        color="primary"
-                        disabled={formik.isSubmitting}
-                        fullWidth
-                        size="large"
-                        type="submit"
-                        variant="contained"
-                    >
-                        Sign In Now
-                    </Button>
+                        <Button
+                            color="primary"
+                            disabled={formik.isSubmitting}
+                            fullWidth
+                            size="large"
+                            type="submit"
+                            variant="contained"
+                        >
+                            Sign In Now
+                        </Button>
                     </Box>
+
                     <Typography
-                    color="textSecondary"
-                    variant="body2"
-                    >
-                    Don&apos;t have an account?
-                    {' '}
+                        color="textSecondary"
+                        variant="body2"
+                        >
+                            Don&apos;t have an account?
+                            {' '}
+                            <Link
+                                to="/register"
+                                component={RouterLink}
+                                variant="subtitle2"
+                                underline="hover"
+                                sx={{
+                                    cursor: 'pointer'
+                                }}
+                                >
+                                Sign Up
+                            </Link>
                     </Typography>
                 </form>
             </Container>
