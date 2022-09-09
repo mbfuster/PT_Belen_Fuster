@@ -1,0 +1,42 @@
+.holder{
+    width: 700px;
+    height: 500px;
+    position: relative;
+    display: inline-flex;
+}
+
+.frame{
+    width: 100%;
+    height: 100%;
+}
+
+.bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    border-bottom: solid 2px black;
+}
+.low-bar{
+    position: absolute;
+    top: 90%;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    border-top: solid 2px black;
+}
+.side-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background-color: green;
+}
+
+.title{
+    padding: 50px 0px 0px 30px;
+}
