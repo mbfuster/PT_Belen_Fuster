@@ -2,6 +2,7 @@
   "name": "xepelin-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/mbfuster.github.io",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -23,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +49,8 @@
   "engines": {
     "node": "16.13.2",
     "npm": "8.19.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
