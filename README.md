@@ -14,5 +14,15 @@ Dentro de esta carpeta encontrará instrucciones más específicas para correr c
 ## xepelin-test
 Aqui se encuentra la aplicación en react para la interfaz del MVP 
 
-## api 
-Aquí se encuentra la aplicación en express.js para un backend, con una api relacionada con una base de datos para la funcionalidad de login
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+
+
+
+
