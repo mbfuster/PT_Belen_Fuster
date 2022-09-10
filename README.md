@@ -6,21 +6,27 @@ Aquí se encuentra los scripts para ambos ejercicios de lógica, en base a javas
 Para correrlos basta con ejecutar el comando:
 
 ```sh
-node app *nombre_archivo*
+node *nombre_archivo*
 ```
-
-Dentro de esta carpeta encontrará instrucciones más específicas para correr cada archivo
 
 ## xepelin-test
 Aqui se encuentra la aplicación en react para la interfaz del MVP 
 
+### Requisitos
+- node : 16.13.2
+- npm: 8.19.1
+- react: ^18.2.0
+
+`npm i` Para instalar el resto de los paquetes
+
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Para correrlo en modo desarrollo:
+Open [http://localhost:3000](http://localhost:3000) Para verlo en el navegador.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+
+###Nota:
+No quedó completo el deploy de la aplicación por lo que no se adjunta. 
 
 
 
