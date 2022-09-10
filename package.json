@@ -2,7 +2,7 @@
   "name": "xepelin-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/mbfuster.github.io",
+  "homepage": "https://github.com/mbfuster.github.io/PT_Belen_Fuster",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
