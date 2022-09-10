@@ -12,9 +12,35 @@ import {
   Typography
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useAuth } from "../context/AuthContext"
+import { useState } from "react";
+
+
 
 const Register = () => {
+    const { signup } = useAuth();
     const navigate = useNavigate();
+    const [user, setUser] = useState({
+        email: '',
+        firstName: '',
+        lastName: '',
+        password: '',
+        policy: false
+        });
+    const [error, setError] = useState("");
+
+    const getSubmit = async (values) => {
+
+        try {
+            await signup(values.email, values.password);
+            navigate("/main");
+        } catch (error) {
+            setError(error.message);
+            navigate("/register");
+
+        }
+    };
+
     const formik = useFormik({
         initialValues: {
         email: '',
@@ -53,8 +79,9 @@ const Register = () => {
             'This field must be checked'
             )
         }),
-        onSubmit: () => {
-            navigate('/main');
+        onSubmit: (values) => {
+            console.log('here',values)
+            getSubmit(values)
         }
     });
 
@@ -73,14 +100,14 @@ const Register = () => {
         }}
       >
         <Container maxWidth="sm">
-            <RouterLink style={{textDecoration: 'none', alignSelf: 'left'}} to="/">
-                <Button
-                component="a"
+            <h4>{error}</h4>
+            <Button
+                component={RouterLink}
                 startIcon={<ArrowBackIcon fontSize="small" />}
+                to="/"
                 >
                 Back
-                </Button>
-            </RouterLink>
+            </Button>
             <form onSubmit={formik.handleSubmit}>
                 <Box sx={{ my: 3 }}>
                 <Typography
