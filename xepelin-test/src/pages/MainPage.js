@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react';
+import { Navigate } from "react-router-dom";
 import './MainPage.css'; 
+import { useAuth } from "../context/AuthContext";
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -11,13 +13,15 @@ function handleInput() {
   }
 
 function MainPage() {
+    const { user, loading } = useAuth();
     const [windowSize, setWindowSize] = useState(getWindowSize());
-    
+
     const publicURL = "https://docs.google.com/spreadsheets/d/1BBeeKJUvvjIjy8B0AD-w7UNq1kh7RHa0QywoqGOZAtQ/edit?usp=sharing;gid=0&amp;single=true&amp;widget=true&amp;headers=false&amp;range=a1:c8";
     useEffect(() => {
         function handleWindowResize() {
             setWindowSize(getWindowSize());
         }
+        console.log(user)
     
         window.addEventListener('resize', handleWindowResize);
         window.addEventListener('click', handleInput);
@@ -27,6 +31,9 @@ function MainPage() {
             window.removeEventListener('click', handleInput);
         };
     }, []);
+    if (loading) return <h1>Loading</h1>;
+
+    else
 
     return (
         <div>
